@@ -26,6 +26,7 @@ const TeamManager = lazy(() => import('./pages/admin/TeamManager'));
 const GalleryManager = lazy(() => import('./pages/admin/GalleryManager'));
 const CareerManager = lazy(() => import('./pages/admin/CareerManager'));
 const ContentManager = lazy(() => import('./pages/admin/ContentManager'));
+const InitiativeManager = lazy(() => import('./pages/admin/InitiativeManager'));
 const AdminSettings = lazy(() => import('./pages/admin/AdminSettings'));
 const AdminManagement = lazy(() => import('./pages/admin/AdminManagement'));
 
@@ -73,6 +74,7 @@ function App() {
               </ProtectedRoute>
             }>
               <Route path="dashboard" element={<ProjectManager />} />
+              <Route path="initiatives" element={<InitiativeManager />} />
               <Route path="team" element={<TeamManager />} />
               <Route path="gallery" element={<GalleryManager />} />
               <Route path="careers" element={<CareerManager />} />

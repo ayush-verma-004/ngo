@@ -16,6 +16,7 @@ const DashboardLayout = () => {
 
     const navItems = [
         { path: '/admin/dashboard', label: 'Projects', icon: LayoutDashboard, permission: 'manage_projects' },
+        { path: '/admin/initiatives', label: 'Initiatives', icon: FileText, permission: 'manage_content' },
         { path: '/admin/team', label: 'Team', icon: Users, permission: 'manage_team' },
         { path: '/admin/gallery', label: 'Gallery', icon: Image, permission: 'manage_gallery' },
         { path: '/admin/careers', label: 'Careers', icon: Briefcase, permission: 'manage_careers' },

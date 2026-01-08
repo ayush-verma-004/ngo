@@ -105,20 +105,28 @@ const ProjectSkeleton = () => (
 
 const Home = () => {
     const [recentProjects, setRecentProjects] = useState([]);
+    const [initiatives, setInitiatives] = useState(highlights); // Default to mock data
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const fetchProjects = async () => {
+        const fetchData = async () => {
             try {
-                const { data } = await api.get('/projects');
-                setRecentProjects(data.slice(0, 3));
+                // Fetch Projects
+                const projectsRes = await api.get('/projects');
+                setRecentProjects(projectsRes.data.slice(0, 3));
+
+                // Fetch Initiatives
+                const initiativesRes = await api.get('/initiatives');
+                if (initiativesRes.data && initiativesRes.data.length > 0) {
+                    setInitiatives(initiativesRes.data);
+                }
             } catch (error) {
-                console.error('Error fetching projects:', error);
+                console.error('Error fetching data:', error);
             } finally {
                 setIsLoading(false);
             }
         };
-        fetchProjects();
+        fetchData();
     }, []);
 
     return (
@@ -137,7 +145,7 @@ const Home = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    {highlights.map((item) => (
+                    {initiatives.map((item) => (
                         <Card key={item.id} className="h-full flex flex-col group hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-500 border-none shadow-lg">
                             <div className="h-56 overflow-hidden relative">
                                 <img
