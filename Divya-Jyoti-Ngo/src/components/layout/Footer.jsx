@@ -62,7 +62,7 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3 text-neutral-400">
                                 <MapPin className="w-5 h-5 text-primary-500 shrink-0 mt-1" />
-                                <span>L - 14 / 610 - GOURI SHANKER KAUSHAL AWASHIYA PARISHAR KATARA HILLS BARRAI BHOPAL (MP.)</span>
+                                <span className="break-words">L - 14 / 610 - GOURI SHANKER KAUSHAL AWASHIYA PARISHAR KATARA HILLS BARRAI BHOPAL (MP.)</span>
                             </li>
                             <li className="flex items-center gap-3 text-neutral-400">
                                 <Phone className="w-5 h-5 text-primary-500 shrink-0" />

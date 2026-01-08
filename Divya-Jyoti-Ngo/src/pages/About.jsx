@@ -52,13 +52,14 @@ const About = () => {
 
             {/* Vision & Values */}
             {/* Vision Section */}
+            {/* Vision Section */}
             <SectionWrapper>
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold font-heading mb-8 text-neutral-900">OUR VISION</h2>
-                    <div className="bg-primary-50 p-8 md:p-12 rounded-3xl relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-32 h-32 bg-primary-100 rounded-full -translate-x-1/2 -translate-y-1/2" />
-                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-100 rounded-full translate-x-1/2 translate-y-1/2" />
-                        <p className="text-lg md:text-xl text-neutral-700 leading-relaxed relative z-10">
+                    <div className="bg-primary-50 p-6 md:p-12 rounded-3xl relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-24 h-24 md:w-32 md:h-32 bg-primary-100 rounded-full -translate-x-1/2 -translate-y-1/2" />
+                        <div className="absolute bottom-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-primary-100 rounded-full translate-x-1/2 translate-y-1/2" />
+                        <p className="text-base md:text-xl text-neutral-700 leading-relaxed relative z-10">
                             "Our vision is to improve the health and socio-economic status of rural communities and support their overall development. We aim to strengthen village institutions through focused training in sanitation, hygiene, and water management. We work to implement innovative livelihood initiatives, women empowerment programs, childcare activities, and environmental awareness campaigns across M.P. and U.P. We also strive to build strong networks with national and international organizations while supporting effective project management for government and non-government institutions."
                         </p>
                     </div>
