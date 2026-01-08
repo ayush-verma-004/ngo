@@ -51,39 +51,48 @@ const About = () => {
             </SectionWrapper>
 
             {/* Vision & Values */}
-            <SectionWrapper bg="gray">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <img
-                            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
-                            alt="Vision"
-                            className="rounded-2xl shadow-xl w-full"
-                        />
-                    </div>
-                    <div>
-                        <h2 className="text-3xl font-bold font-heading mb-6">OUR VISION</h2>
-                        <p className="text-lg text-neutral-600 mb-6">
-                            Our vision is to improve the health and socio-economic status of rural communities and support their overall development. We aim to strengthen village institutions through focused training in sanitation, hygiene, and water management. We work to implement innovative livelihood initiatives, women empowerment programs, childcare activities, and environmental awareness campaigns across M.P. and U.P. We also strive to build strong networks with national and international organizations while supporting effective project management for government and non-government institutions.
+            {/* Vision Section */}
+            <SectionWrapper>
+                <div className="max-w-4xl mx-auto text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-8 text-neutral-900">OUR VISION</h2>
+                    <div className="bg-primary-50 p-8 md:p-12 rounded-3xl relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-32 h-32 bg-primary-100 rounded-full -translate-x-1/2 -translate-y-1/2" />
+                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-100 rounded-full translate-x-1/2 translate-y-1/2" />
+                        <p className="text-lg md:text-xl text-neutral-700 leading-relaxed relative z-10">
+                            "Our vision is to improve the health and socio-economic status of rural communities and support their overall development. We aim to strengthen village institutions through focused training in sanitation, hygiene, and water management. We work to implement innovative livelihood initiatives, women empowerment programs, childcare activities, and environmental awareness campaigns across M.P. and U.P. We also strive to build strong networks with national and international organizations while supporting effective project management for government and non-government institutions."
                         </p>
-                        <h3 className="text-2xl font-bold font-heading mb-4">OUR VALUES</h3>
-                        <ul className="space-y-3">
-                            {[
-                                'Community Development',
-                                'Health & Hygiene Improvement',
-                                'Women Empowerment',
-                                'Sustainable Livelihood',
-                                'Capacity Building',
-                                'Environmental Responsibility',
-                                'Social Inclusion',
-                                'Collaboration & Networking',
-                                'Transparency & Service'
-                            ].map((value) => (
-                                <li key={value} className="flex items-center gap-3 text-neutral-700 font-medium">
-                                    <span className="w-2 h-2 rounded-full bg-primary-500" />
-                                    {value}
-                                </li>
-                            ))}
-                        </ul>
+                    </div>
+                </div>
+            </SectionWrapper>
+
+            {/* Values Section */}
+            <SectionWrapper bg="gray">
+                <div className="container mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold font-heading mb-12 text-center text-neutral-900">OUR VALUES</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            'Community Development',
+                            'Health & Hygiene Improvement',
+                            'Women Empowerment',
+                            'Sustainable Livelihood',
+                            'Capacity Building',
+                            'Environmental Responsibility',
+                            'Social Inclusion',
+                            'Collaboration & Networking',
+                            'Transparency & Service'
+                        ].map((value, index) => (
+                            <motion.div
+                                key={value}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-neutral-100 flex items-center gap-4"
+                            >
+                                <div className="w-3 h-12 bg-primary-500 rounded-full shrink-0" />
+                                <h3 className="text-lg font-semibold text-neutral-800">{value}</h3>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </SectionWrapper>
