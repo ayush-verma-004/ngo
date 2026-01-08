@@ -131,11 +131,11 @@ const CareerManager = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-neutral-700 mb-1">Opening Date</label>
+                                    <label className="block text-sm font-medium text-neutral-700 mb-1">Opening Date (Optional)</label>
                                     <input type="date" name="openingDate" value={formData.openingDate} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg" />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-neutral-700 mb-1">Closing Date</label>
+                                    <label className="block text-sm font-medium text-neutral-700 mb-1">Closing Date (Optional)</label>
                                     <input type="date" name="closingDate" value={formData.closingDate} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg" />
                                 </div>
                             </div>
