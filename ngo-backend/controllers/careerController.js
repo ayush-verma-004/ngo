@@ -11,13 +11,15 @@ const getCareers = async (req, res) => {
 
 const addCareer = async (req, res) => {
     try {
-        const { title, description, location, type } = req.body;
+        const { title, description, location, type, openingDate, closingDate } = req.body;
 
         const career = await Career.create({
             title,
             description,
             location,
-            type
+            type,
+            openingDate,
+            closingDate
         });
 
         res.status(201).json(career);

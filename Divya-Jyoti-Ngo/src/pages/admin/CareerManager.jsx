@@ -13,7 +13,9 @@ const CareerManager = () => {
         title: '',
         description: '',
         location: '',
-        type: 'Full-time'
+        type: 'Full-time',
+        openingDate: '',
+        closingDate: ''
     });
 
     useEffect(() => {
@@ -63,7 +65,7 @@ const CareerManager = () => {
 
     const closeModal = () => {
         setIsModalOpen(false);
-        setFormData({ title: '', description: '', location: '', type: 'Full-time' });
+        setFormData({ title: '', description: '', location: '', type: 'Full-time', openingDate: '', closingDate: '' });
     };
 
     if (isLoading) return <div>Loading...</div>;
@@ -111,7 +113,7 @@ const CareerManager = () => {
                                 <label className="block text-sm font-medium text-neutral-700 mb-1">Job Title</label>
                                 <input required name="title" value={formData.title} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg" />
                             </div>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-neutral-700 mb-1">Type</label>
                                     <select name="type" value={formData.type} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg">
@@ -126,10 +128,23 @@ const CareerManager = () => {
                                     <input required name="location" value={formData.location} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg" />
                                 </div>
                             </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-neutral-700 mb-1">Opening Date</label>
+                                    <input type="date" name="openingDate" value={formData.openingDate} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-neutral-700 mb-1">Closing Date</label>
+                                    <input type="date" name="closingDate" value={formData.closingDate} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg" />
+                                </div>
+                            </div>
+
                             <div>
                                 <label className="block text-sm font-medium text-neutral-700 mb-1">Description</label>
                                 <textarea required name="description" value={formData.description} onChange={handleInputChange} className="w-full px-3 py-2 border rounded-lg" rows="5" />
                             </div>
+
                             <div className="flex justify-end pt-4">
                                 <Button type="button" variant="ghost" onClick={closeModal} className="mr-2">Cancel</Button>
                                 <Button type="submit">Post Job</Button>

@@ -20,6 +20,13 @@ const careerSchema = new mongoose.Schema({
     isOpen: {
         type: Boolean,
         default: true
+    },
+    openingDate: {
+        type: Date,
+        default: Date.now
+    },
+    closingDate: {
+        type: Date
     }
 }, { timestamps: true });
 

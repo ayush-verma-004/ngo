@@ -3,7 +3,7 @@ import SectionWrapper from '../components/ui/SectionWrapper';
 import api from '../services/api';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button'; // Assuming Button is available
-import { MapPin, Clock } from 'lucide-react';
+import { MapPin, Clock, Calendar } from 'lucide-react';
 
 
 const Careers = () => {
@@ -52,13 +52,20 @@ const Careers = () => {
                                         </span>
                                     </div>
 
-                                    <div className="flex items-center gap-4 text-neutral-500 text-sm mb-4">
+                                    <div className="flex flex-wrap items-center gap-4 text-neutral-500 text-sm mb-4">
                                         <span className="flex items-center gap-1">
                                             <MapPin size={16} /> {job.location}
                                         </span>
-                                        <span className="flex items-center gap-1">
-                                            <Clock size={16} /> Posted recently
-                                        </span>
+                                        {job.openingDate && (
+                                            <span className="flex items-center gap-1">
+                                                <Calendar size={16} /> Posted: {new Date(job.openingDate).toLocaleDateString()}
+                                            </span>
+                                        )}
+                                        {job.closingDate && (
+                                            <span className="flex items-center gap-1 text-red-500">
+                                                <Calendar size={16} /> Apply by: {new Date(job.closingDate).toLocaleDateString()}
+                                            </span>
+                                        )}
                                     </div>
 
                                     <p className="text-neutral-600 leading-relaxed mb-4">
