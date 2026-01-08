@@ -62,15 +62,15 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3 text-neutral-400">
                                 <MapPin className="w-5 h-5 text-primary-500 shrink-0 mt-1" />
-                                <span>123 Hope Street, Civil Lines,<br />New Delhi, India 110001</span>
+                                <span>L - 14 / 610 - GOURI SHANKER KAUSHAL AWASHIYA PARISHAR KATARA HILLS BARRAI BHOPAL (MP.)</span>
                             </li>
                             <li className="flex items-center gap-3 text-neutral-400">
                                 <Phone className="w-5 h-5 text-primary-500 shrink-0" />
-                                <a href="tel:+919876543210" className="hover:text-white transition-colors">+91 98765 43210</a>
+                                <a href="tel:+919977013534" className="hover:text-white transition-colors">9977013534, 8827869490</a>
                             </li>
                             <li className="flex items-center gap-3 text-neutral-400">
                                 <Mail className="w-5 h-5 text-primary-500 shrink-0" />
-                                <a href="mailto:info@divyajyoti.org" className="hover:text-white transition-colors">info@divyajyoti.org</a>
+                                <a href="mailto:divyajyoti32@gmail.com" className="hover:text-white transition-colors">divyajyoti32@gmail.com</a>
                             </li>
                         </ul>
                     </div>

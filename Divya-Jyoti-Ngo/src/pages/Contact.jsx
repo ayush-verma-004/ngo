@@ -51,8 +51,25 @@ const Contact = () => {
                                     <MapPin className="w-6 h-6 text-primary-600" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-lg mb-1">Our Office</h3>
-                                    <p className="text-neutral-600">123 Hope Street, Civil Lines,<br />New Delhi, India 110001</p>
+                                    <h3 className="font-semibold text-lg mb-1">Head Office</h3>
+                                    <p className="text-neutral-600 mb-2">
+                                        L - 14 / 610 - GOURI SHANKER KAUSHAL AWASHIYA PARISHAR KATARA HILLS BARRAI BHOPAL (MP.)
+                                    </p>
+                                    <p className="text-sm text-neutral-500">R. NO. 6888/2006</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-4">
+                                <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center shrink-0">
+                                    <MapPin className="w-6 h-6 text-primary-600" />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg mb-1">Branch Offices</h3>
+                                    <div className="text-neutral-600 text-sm space-y-2">
+                                        <p><span className="font-semibold">M.P.:</span> DINDORI, RAISEN, KHARGONE, GWALIOR, REWA, SATNA, SHADOL, SIDHI, SINGROLI, UMARIA, ANUPPUR, BHOPAL</p>
+                                        <p><span className="font-semibold">U.P.:</span> GONDA, BADHNI, SIDDARTHNAGAR, KANPUR, LUCKNOW</p>
+                                        <p><span className="font-semibold">RAJASTHAN:</span> JAIPUR, UDAIPUR, BHARATPUR, GANGANAGAR, ALWAR, AJMER, HANUMANGARH</p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -62,8 +79,8 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg mb-1">Phone Details</h3>
-                                    <p className="text-neutral-600">+91 98765 43210</p>
-                                    <p className="text-neutral-500 text-sm">Mon-Fri 9am-6pm</p>
+                                    <p className="text-neutral-600">9977013534, 8827869490</p>
+                                    <p className="text-neutral-600">8109246303</p>
                                 </div>
                             </div>
 
@@ -73,8 +90,7 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg mb-1">Email Us</h3>
-                                    <p className="text-neutral-600">info@divyajyoti.org</p>
-                                    <p className="text-neutral-600">support@divyajyoti.org</p>
+                                    <p className="text-neutral-600">divyajyoti32@gmail.com</p>
                                 </div>
                             </div>
                         </div>
