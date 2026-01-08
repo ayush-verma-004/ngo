@@ -61,13 +61,23 @@ const About = () => {
                         />
                     </div>
                     <div>
-                        <h2 className="text-3xl font-bold font-heading mb-6">Our Vision</h2>
+                        <h2 className="text-3xl font-bold font-heading mb-6">OUR VISION</h2>
                         <p className="text-lg text-neutral-600 mb-6">
-                            We envision a world where every individual has access to education, healthcare, and equal opportunities, regardless of their background.
+                            Our vision is to improve the health and socio-economic status of rural communities and support their overall development. We aim to strengthen village institutions through focused training in sanitation, hygiene, and water management. We work to implement innovative livelihood initiatives, women empowerment programs, childcare activities, and environmental awareness campaigns across M.P. and U.P. We also strive to build strong networks with national and international organizations while supporting effective project management for government and non-government institutions.
                         </p>
-                        <h3 className="text-2xl font-bold font-heading mb-4">Core Values</h3>
+                        <h3 className="text-2xl font-bold font-heading mb-4">OUR VALUES</h3>
                         <ul className="space-y-3">
-                            {['Compassion', 'Integrity', 'Transparency', 'Inclusivity', 'Sustainability'].map((value) => (
+                            {[
+                                'Community Development',
+                                'Health & Hygiene Improvement',
+                                'Women Empowerment',
+                                'Sustainable Livelihood',
+                                'Capacity Building',
+                                'Environmental Responsibility',
+                                'Social Inclusion',
+                                'Collaboration & Networking',
+                                'Transparency & Service'
+                            ].map((value) => (
                                 <li key={value} className="flex items-center gap-3 text-neutral-700 font-medium">
                                     <span className="w-2 h-2 rounded-full bg-primary-500" />
                                     {value}
