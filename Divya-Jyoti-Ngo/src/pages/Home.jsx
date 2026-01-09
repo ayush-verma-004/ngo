@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Heart, Users, Globe, BookOpen } from 'lucide-react';
+import { ArrowRight, Heart, Users, MapPin, Layers, Coins } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import SectionWrapper from '../components/ui/SectionWrapper';
@@ -67,10 +67,10 @@ const Hero = () => {
 
 const Stats = () => {
     const stats = [
-        { icon: Users, label: 'Elders Cared For', value: '500+' },
-        { icon: BookOpen, label: 'Quality of Life Index', value: '100%' },
-        { icon: Globe, label: 'Support Centers', value: '10+' },
-        { icon: Heart, label: 'Dedicated Caregivers', value: '50+' },
+        { icon: MapPin, label: 'DISTRICTS WORKED IN', value: '30+' },
+        { icon: Layers, label: 'MAJOR PROGRAMS / PROJECT TYPES', value: '50+' },
+        { icon: Users, label: 'PROJECT STAFF', value: '219' },
+        { icon: Coins, label: 'ANNUAL EXPENDITURE (2024–25)', value: '20 Cr+' },
     ];
 
     return (
