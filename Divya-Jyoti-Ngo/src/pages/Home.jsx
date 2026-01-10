@@ -7,7 +7,7 @@ import SectionWrapper from '../components/ui/SectionWrapper';
 import Skeleton from '../components/ui/Skeleton';
 import { highlights } from '../data/mockData';
 import api from '../services/api';
-import heroImage from '../img/hero.png';
+import heroImage from '../img/hero.jpg';
 
 const Hero = () => {
     return (

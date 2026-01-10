@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import { motion } from 'framer-motion';
 import api from '../services/api';
-import aboutUsImage from '../img/aboutus.png';
+import aboutUsImage from '../img/aboutus.jpg';
 
 const About = () => {
     const [aboutText, setAboutText] = useState('');
