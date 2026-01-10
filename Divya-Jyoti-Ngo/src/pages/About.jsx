@@ -24,7 +24,7 @@ const About = () => {
     return (
         <div className="pt-20">
             {/* Hero Section with Image */}
-            <div className="relative h-[400px] w-full overflow-hidden">
+            <div className="relative h-[600px] w-full overflow-hidden">
                 <div className="absolute inset-0 bg-black/50 z-10" />
                 <img
                     src={aboutUsImage}
