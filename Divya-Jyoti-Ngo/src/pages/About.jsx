@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SectionWrapper from '../components/ui/SectionWrapper';
 import { motion } from 'framer-motion';
 import api from '../services/api';
+import aboutUsImage from '../img/aboutus.png';
 
 const About = () => {
     const [aboutText, setAboutText] = useState('');
@@ -26,7 +27,7 @@ const About = () => {
             <div className="relative h-[400px] w-full overflow-hidden">
                 <div className="absolute inset-0 bg-black/50 z-10" />
                 <img
-                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80"
+                    src={aboutUsImage}
                     alt="About Us"
                     className="w-full h-full object-cover"
                 />
