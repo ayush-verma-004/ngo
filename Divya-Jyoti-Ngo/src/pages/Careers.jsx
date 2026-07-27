@@ -14,7 +14,7 @@ const Careers = () => {
         const fetchCareers = async () => {
             try {
                 const { data } = await api.get('/careers');
-                setCareers(data);
+                setCareers(Array.isArray(data) ? data : []);
             } catch (error) {
                 console.error(error);
             } finally {
@@ -37,7 +37,7 @@ const Careers = () => {
                 </div>
 
                 <div className="max-w-4xl mx-auto space-y-6">
-                    {careers.length === 0 ? (
+                    {(!Array.isArray(careers) || careers.length === 0) ? (
                         <div className="text-center text-neutral-500 py-10 bg-neutral-50 rounded-lg">
                             No current openings. Please check back later or send your resume to careers@divyajyoti.org
                         </div>

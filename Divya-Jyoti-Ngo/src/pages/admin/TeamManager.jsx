@@ -26,7 +26,7 @@ const TeamManager = () => {
     const fetchTeam = async () => {
         try {
             const { data } = await api.get('/team');
-            setTeam(data);
+            setTeam(Array.isArray(data) ? data : []);
         } catch (error) {
             toast.error('Failed to fetch team');
         } finally {
@@ -107,7 +107,7 @@ const TeamManager = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {team.map((member) => (
+                {(Array.isArray(team) ? team : []).map((member) => (
                     <div key={member._id} className="bg-white p-6 rounded-xl shadow flex flex-col items-center text-center relative group">
                         <button
                             onClick={() => handleDelete(member._id)}

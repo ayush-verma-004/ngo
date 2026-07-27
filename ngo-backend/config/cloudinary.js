@@ -21,4 +21,19 @@ const storage = new CloudinaryStorage({
 
 const upload = multer({ storage: storage });
 
-module.exports = { cloudinary, upload };
+const getPublicIdFromUrl = (url) => {
+    if (!url) return null;
+    const parts = url.split('/');
+    const uploadIndex = parts.indexOf('upload');
+    if (uploadIndex === -1) return null;
+    const afterUpload = parts.slice(uploadIndex + 1);
+    let startIndex = 0;
+    if (afterUpload[0] && afterUpload[0].startsWith('v') && !isNaN(afterUpload[0].substring(1))) {
+        startIndex = 1;
+    }
+    const pathWithExtension = afterUpload.slice(startIndex).join('/');
+    const publicId = pathWithExtension.substring(0, pathWithExtension.lastIndexOf('.'));
+    return publicId;
+};
+
+module.exports = { cloudinary, upload, getPublicIdFromUrl };

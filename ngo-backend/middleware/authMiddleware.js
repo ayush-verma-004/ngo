@@ -26,7 +26,7 @@ const protect = async (req, res, next) => {
     }
 
     if (!token) {
-        res.status(401).json({ message: 'Not authorized, no token' });
+        return res.status(401).json({ message: 'Not authorized, no token' });
     }
 };
 
@@ -43,7 +43,7 @@ const checkPermission = (permission) => {
         if (req.admin && (req.admin.role === 'super_admin' || req.admin.permissions.includes(permission))) {
             next();
         } else {
-            res.status(403).json({ message: `Not authorized, mission permission: ${permission}` });
+            res.status(403).json({ message: `Not authorized, missing permission: ${permission}` });
         }
     };
 };

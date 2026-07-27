@@ -25,7 +25,7 @@ const CareerManager = () => {
     const fetchCareers = async () => {
         try {
             const { data } = await api.get('/careers');
-            setCareers(data);
+            setCareers(Array.isArray(data) ? data : []);
         } catch (error) {
             toast.error('Failed to fetch careers');
         } finally {
@@ -81,7 +81,7 @@ const CareerManager = () => {
             </div>
 
             <div className="space-y-4">
-                {careers.map((job) => (
+                {(Array.isArray(careers) ? careers : []).map((job) => (
                     <div key={job._id} className="bg-white p-6 rounded-xl shadow flex justify-between items-start">
                         <div>
                             <div className="flex items-center gap-2 mb-2">

@@ -22,7 +22,7 @@ const GalleryManager = () => {
     const fetchGallery = async () => {
         try {
             const { data } = await api.get('/gallery');
-            setGallery(data);
+            setGallery(Array.isArray(data) ? data : []);
         } catch (error) {
             toast.error('Failed to fetch gallery');
         } finally {
@@ -89,7 +89,7 @@ const GalleryManager = () => {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {gallery.map((item) => (
+                {(Array.isArray(gallery) ? gallery : []).map((item) => (
                     <div key={item._id} className="relative group rounded-lg overflow-hidden h-48">
                         <img src={item.image} alt={item.caption} className="w-full h-full object-cover" />
                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4">

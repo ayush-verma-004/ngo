@@ -11,7 +11,7 @@ const Team = () => {
         const fetchTeam = async () => {
             try {
                 const { data } = await api.get('/team');
-                setTeam(data);
+                setTeam(Array.isArray(data) ? data : []);
             } catch (error) {
                 console.error(error);
             } finally {
@@ -34,7 +34,7 @@ const Team = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {team.map((member) => (
+                    {(Array.isArray(team) ? team : []).map((member) => (
                         <div key={member._id} className="text-center group">
                             <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary-100">
                                 <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
@@ -45,12 +45,12 @@ const Team = () => {
 
                             <div className="flex justify-center gap-4">
                                 {member.socialLinks?.linkedin && (
-                                    <a href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer text-neutral-400 hover:text-primary-600">
+                                    <a href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary-600">
                                         <Linkedin size={18} />
                                     </a>
                                 )}
                                 {member.socialLinks?.twitter && (
-                                    <a href={member.socialLinks.twitter} target="_blank" rel="noopener noreferrer text-neutral-400 hover:text-primary-600">
+                                    <a href={member.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-primary-600">
                                         <Twitter size={18} />
                                     </a>
                                 )}

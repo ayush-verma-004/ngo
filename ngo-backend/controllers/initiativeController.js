@@ -1,4 +1,5 @@
 const Initiative = require('../models/Initiative');
+const { cloudinary, getPublicIdFromUrl } = require('../config/cloudinary');
 
 // @desc    Get all initiatives
 // @route   GET /api/initiatives
@@ -52,10 +53,18 @@ const updateInitiative = async (req, res) => {
             return res.status(404).json({ message: 'Initiative not found' });
         }
 
-        if (req.file) {
-            initiative.image = req.file.path;
-        } else if (req.body.image) {
-            initiative.image = req.body.image;
+        if (req.file || req.body.image) {
+            if (initiative.image) {
+                const oldPublicId = getPublicIdFromUrl(initiative.image);
+                if (oldPublicId) {
+                    await cloudinary.uploader.destroy(oldPublicId);
+                }
+            }
+            if (req.file) {
+                initiative.image = req.file.path;
+            } else {
+                initiative.image = req.body.image;
+            }
         }
 
         initiative.title = req.body.title || initiative.title;
@@ -77,6 +86,13 @@ const deleteInitiative = async (req, res) => {
 
         if (!initiative) {
             return res.status(404).json({ message: 'Initiative not found' });
+        }
+
+        if (initiative.image) {
+            const publicId = getPublicIdFromUrl(initiative.image);
+            if (publicId) {
+                await cloudinary.uploader.destroy(publicId);
+            }
         }
 
         await initiative.deleteOne();

@@ -34,7 +34,7 @@ const AdminManagement = () => {
     const fetchAdmins = async () => {
         try {
             const { data } = await api.get('/auth');
-            setAdmins(data);
+            setAdmins(Array.isArray(data) ? data : []);
         } catch (error) {
             toast.error(error.response?.data?.message || 'Failed to fetch admins');
         } finally {
@@ -273,7 +273,7 @@ const AdminManagement = () => {
                         <tbody className="divide-y divide-neutral-100">
                             {loading ? (
                                 <tr><td colSpan="4" className="p-8 text-center text-neutral-400">Loading admins...</td></tr>
-                            ) : admins.map(adm => (
+                            ) : (Array.isArray(admins) ? admins : []).map(adm => (
                                 <tr key={adm._id} className="hover:bg-neutral-50/50 transition-colors">
                                     <td className="px-6 py-4">
                                         <div className="flex items-center gap-3">

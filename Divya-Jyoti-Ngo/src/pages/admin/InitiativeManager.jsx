@@ -24,7 +24,7 @@ const InitiativeManager = () => {
     const fetchInitiatives = async () => {
         try {
             const { data } = await api.get('/initiatives');
-            setInitiatives(data);
+            setInitiatives(Array.isArray(data) ? data : []);
         } catch (error) {
             toast.error('Failed to fetch initiatives');
         } finally {
@@ -131,7 +131,7 @@ const InitiativeManager = () => {
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-neutral-200">
-                            {initiatives.map((item) => (
+                            {(Array.isArray(initiatives) ? initiatives : []).map((item) => (
                                 <tr key={item._id}>
                                     <td className="px-6 py-4 whitespace-nowrap">
                                         <img src={item.image} alt={item.title} className="h-10 w-10 rounded-full object-cover" />

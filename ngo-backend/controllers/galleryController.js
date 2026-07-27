@@ -1,5 +1,5 @@
 const GalleryItem = require('../models/GalleryItem');
-const { cloudinary } = require('../config/cloudinary');
+const { cloudinary, getPublicIdFromUrl } = require('../config/cloudinary');
 
 const getGallery = async (req, res) => {
     try {
@@ -39,6 +39,13 @@ const deleteGalleryItem = async (req, res) => {
 
         if (!item) {
             return res.status(404).json({ message: 'Item not found' });
+        }
+
+        if (item.image) {
+            const publicId = getPublicIdFromUrl(item.image);
+            if (publicId) {
+                await cloudinary.uploader.destroy(publicId);
+            }
         }
 
         await item.deleteOne();

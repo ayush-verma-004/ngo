@@ -1,5 +1,5 @@
 const Project = require('../models/Project');
-const { cloudinary } = require('../config/cloudinary');
+const { cloudinary, getPublicIdFromUrl } = require('../config/cloudinary');
 
 // @desc    Get all projects
 // @route   GET /api/projects
@@ -56,6 +56,12 @@ const updateProject = async (req, res) => {
         // If a new image is uploaded, use it. Otherwise keep old one.
         // Optional: Delete old image from Cloudinary (requires public_id storage)
         if (req.file) {
+            if (project.image) {
+                const oldPublicId = getPublicIdFromUrl(project.image);
+                if (oldPublicId) {
+                    await cloudinary.uploader.destroy(oldPublicId);
+                }
+            }
             project.image = req.file.path;
         }
 
@@ -81,6 +87,13 @@ const deleteProject = async (req, res) => {
 
         if (!project) {
             return res.status(404).json({ message: 'Project not found' });
+        }
+
+        if (project.image) {
+            const publicId = getPublicIdFromUrl(project.image);
+            if (publicId) {
+                await cloudinary.uploader.destroy(publicId);
+            }
         }
 
         await project.deleteOne();

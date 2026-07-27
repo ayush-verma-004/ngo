@@ -21,14 +21,22 @@ const allowedOrigin = process.env.FRONTEND_URL || 'http://localhost:5173';
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const whitelist = [
+    'https://divyajyotisdc.org',
+    'https://www.divyajyotisdc.org',
+    'https://ngo.divyajyotisdc.org',
+    'http://localhost:5173',
+    allowedOrigin
+].filter(Boolean);
+
 app.use(cors({
     origin: (origin, callback) => {
-        // Allow requests with no origin (like mobile apps or curl requests)
+        // Allow requests with no origin (like mobile apps, curl, or postman)
         if (!origin) return callback(null, true);
-        if (origin === allowedOrigin || origin === 'http://localhost:5173') {
+        if (whitelist.indexOf(origin) !== -1) {
             callback(null, true);
         } else {
-            callback(null, true); // In monolithic mode, same origin is defaultly ok
+            callback(new Error('Not allowed by CORS'));
         }
     },
     credentials: true
@@ -52,7 +60,7 @@ if (process.env.NODE_ENV === 'production') {
     // Set static folder - assuming frontend is in '../Divya-Jyoti-Ngo/dist' relative to backend
     app.use(express.static(path.join(__dirname, '../Divya-Jyoti-Ngo/dist')));
 
-    app.get('*path', (req, res) => {
+    app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, '../', 'Divya-Jyoti-Ngo', 'dist', 'index.html'));
     });
 } else {

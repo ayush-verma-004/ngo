@@ -21,7 +21,7 @@ const Projects = () => {
         const fetchProjects = async () => {
             try {
                 const { data } = await api.get('/projects');
-                setProjects(data);
+                setProjects(Array.isArray(data) ? data : []);
             } catch (error) {
                 console.error(error);
             } finally {
@@ -46,7 +46,7 @@ const Projects = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {isLoading ? (
                         [...Array(6)].map((_, i) => <ProjectSkeleton key={i} />)
-                    ) : projects.length > 0 ? (
+                    ) : (Array.isArray(projects) && projects.length > 0) ? (
                         projects.map((project) => (
                             <Card key={project._id} className="group border-none shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl overflow-hidden bg-white">
                                 <div className="relative h-64 overflow-hidden">

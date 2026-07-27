@@ -11,7 +11,7 @@ const Gallery = () => {
         const fetchGallery = async () => {
             try {
                 const { data } = await api.get('/gallery');
-                setGallery(data);
+                setGallery(Array.isArray(data) ? data : []);
             } catch (error) {
                 console.error(error);
             } finally {
@@ -21,8 +21,8 @@ const Gallery = () => {
         fetchGallery();
     }, []);
 
-    const categories = ['All', ...new Set(gallery.map(item => item.category))];
-    const filteredGallery = filter === 'All' ? gallery : gallery.filter(item => item.category === filter);
+    const categories = ['All', ...new Set(Array.isArray(gallery) ? gallery.map(item => item.category) : [])];
+    const filteredGallery = Array.isArray(gallery) ? (filter === 'All' ? gallery : gallery.filter(item => item.category === filter)) : [];
 
     if (isLoading) return <div className="min-h-screen pt-20 text-center">Loading Gallery...</div>;
 

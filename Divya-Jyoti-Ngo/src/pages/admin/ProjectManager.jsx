@@ -27,7 +27,7 @@ const ProjectManager = () => {
     const fetchProjects = async () => {
         try {
             const { data } = await api.get('/projects');
-            setProjects(data);
+            setProjects(Array.isArray(data) ? data : []);
         } catch (error) {
             toast.error('Failed to fetch projects');
         } finally {
@@ -144,7 +144,7 @@ const ProjectManager = () => {
                             </tr>
                         </thead>
                         <tbody className="bg-white divide-y divide-neutral-200">
-                            {projects.map((project) => (
+                            {(Array.isArray(projects) ? projects : []).map((project) => (
                                 <tr key={project._id}>
                                     <td className="px-6 py-4 whitespace-nowrap">
                                         <img src={project.image} alt={project.title} className="h-10 w-10 rounded-full object-cover" />

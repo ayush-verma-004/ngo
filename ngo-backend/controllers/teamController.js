@@ -1,5 +1,5 @@
 const TeamMember = require('../models/TeamMember');
-const { cloudinary } = require('../config/cloudinary');
+const { cloudinary, getPublicIdFromUrl } = require('../config/cloudinary');
 
 const getTeam = async (req, res) => {
     try {
@@ -51,6 +51,13 @@ const deleteTeamMember = async (req, res) => {
 
         if (!member) {
             return res.status(404).json({ message: 'Team member not found' });
+        }
+
+        if (member.image) {
+            const publicId = getPublicIdFromUrl(member.image);
+            if (publicId) {
+                await cloudinary.uploader.destroy(publicId);
+            }
         }
 
         await member.deleteOne();
